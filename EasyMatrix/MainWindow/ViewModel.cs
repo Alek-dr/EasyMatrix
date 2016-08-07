@@ -55,6 +55,7 @@ namespace EasyMatrix
         public string file7 { get; set; }
         public string file8 { get; set; }
         public string file9 { get; set; }
+        public string file10 { get; set; }
         #endregion
 
         private ICommand _createNewMatrix
@@ -460,6 +461,7 @@ namespace EasyMatrix
             file7 = @"Resources\Help\Rang.rtf";
             file8 = @"Resources\Help\Inverse.rtf";
             file9 = @"Resources\Help\Commands.rtf";
+            file10 = @"Resources\Help\About.rtf";
         }
 
         void MatrixCreateStart()

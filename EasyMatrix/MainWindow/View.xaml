@@ -238,6 +238,23 @@
                                               IsEnabled="True"
                                               IsReadOnly="True" />
                 </TreeViewItem>
+                <TreeViewItem HorizontalContentAlignment="Left"
+                              FontSize="14"
+                              FontStyle="Normal"
+                              Header="О программе">
+                    <myNamespace:RichTextFile Width="{Binding ActualWidth,
+                                                              ConverterParameter=Width,
+                                                              Converter={StaticResource HelpWidth},
+                                                              ElementName=Helpborder}"
+                                              Height="Auto"
+                                              HorizontalContentAlignment="Left"
+                                              File="{Binding file10}"
+                                              HorizontalScrollBarVisibility="Disabled"
+                                              Hyperlink.Click="RichTextFile_Click"
+                                              IsDocumentEnabled="True"
+                                              IsEnabled="True"
+                                              IsReadOnly="True" />
+                </TreeViewItem>
             </TreeView>
 
             <TextBox x:Name="MainTextBox"

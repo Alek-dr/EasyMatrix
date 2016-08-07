@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/help/about.rtf")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/help/kind.rtf")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/help/act1.rtf")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/help/power.rtf")]
