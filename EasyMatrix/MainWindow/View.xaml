@@ -1,0 +1,631 @@
+﻿<Window x:Class="EasyMatrix.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:databinding="clr-namespace:EasyMatrix"
+        xmlns:local="clr-namespace:EasyMatrix"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:myNamespace="clr-namespace:EasyMatrix"
+        x:Name="window"
+        Title="EasyMatrix"
+        Width="Auto"
+        Height="Auto"
+        MinWidth="500"
+        MinHeight="500"
+        Background="#FF383838"
+        Foreground="#FFD8D7D0"
+        Icon="../Resources/Images/Icon.ico"
+        mc:Ignorable="d">
+    <Window.DataContext>
+        <myNamespace:ViewModel />
+    </Window.DataContext>
+    <Window.Resources>
+        <myNamespace:MaxWidthConverter x:Key="MaxWidthConverter" />
+        <myNamespace:MinWidthConverter x:Key="MinWidthConverter" />
+        <myNamespace:BottomRowHeigh x:Key="BottomRowHeigh" />
+        <myNamespace:OneThird x:Key="OneThird" />
+        <myNamespace:Plus25 x:Key="Plus25" />
+        <myNamespace:BtnWidth x:Key="BtnWidth" />
+        <myNamespace:MatrixWrite x:Key="MatrixWrite" />
+        <myNamespace:One8 x:Key="One8" />
+        <myNamespace:HelpWidth x:Key="HelpWidth" />
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Name="Row1" Height="250*" />
+            <RowDefinition Name="Row2" Height="25" />
+            <RowDefinition Name="Row0" Height="130" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Name="col0" Width="0.2*" />
+            <ColumnDefinition Name="col1" Width="0.8*" />
+        </Grid.ColumnDefinitions>
+        <Grid />
+        <Grid x:Name="HelpGrid"
+              Grid.Row="0"
+              Grid.Column="0"
+              Grid.ColumnSpan="2"
+              Width="Auto"
+              Height="{Binding ElementName=Row0}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Name="helpCol"
+                                  Width="100"
+                                  MinWidth="{Binding ActualWidth,
+                                                     ConverterParameter=Width,
+                                                     Converter={StaticResource MinWidthConverter},
+                                                     ElementName=window}"
+                                  MaxWidth="{Binding ActualWidth,
+                                                     ConverterParameter=Width,
+                                                     Converter={StaticResource MaxWidthConverter},
+                                                     ElementName=window}" />
+                <ColumnDefinition x:Name="MainField" Width="*" />
+            </Grid.ColumnDefinitions>
+            <GridSplitter Name="GSplit"
+                          Grid.Row="0"
+                          Grid.Column="0"
+                          Width="3"
+                          Margin="0,0,-1,0"
+                          Panel.ZIndex="2"
+                          Background="Black" />
+            <Border x:Name="Helpborder"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Width="{Binding ElementName=col0}"
+                    Height="{Binding ElementName=GSplit}"
+                    Margin="0,0,0,0"
+                    Background="#FFB4C1D1"
+                    BorderBrush="#FFF3EFEF"
+                    BorderThickness="0,0,8,0" />
+            <TreeView Name="Tree"
+                      Grid.Row="0"
+                      Grid.Column="0">
+                <TreeViewItem HorizontalContentAlignment="Left"
+                              FontSize="14"
+                              FontStyle="Normal"
+                              Header="Виды матриц">
+                    <myNamespace:RichTextFile Width="{Binding ActualWidth,
+                                                              ConverterParameter=Width,
+                                                              Converter={StaticResource HelpWidth},
+                                                              ElementName=Helpborder}"
+                                              Height="Auto"
+                                              File="{Binding file1}"
+                                              HorizontalScrollBarVisibility="Disabled"
+                                              Hyperlink.Click="RichTextFile_Click"
+                                              IsDocumentEnabled="True"
+                                              IsEnabled="True"
+                                              IsReadOnly="True" />
+                </TreeViewItem>
+                <TreeViewItem HorizontalContentAlignment="Left"
+                              FontSize="14"
+                              FontStyle="Normal"
+                              Header="Операции над матрицами">
+                    <myNamespace:RichTextFile Width="{Binding ActualWidth,
+                                                              ConverterParameter=Width,
+                                                              Converter={StaticResource HelpWidth},
+                                                              ElementName=Helpborder}"
+                                              Height="Auto"
+                                              HorizontalContentAlignment="Left"
+                                              File="{Binding file2}"
+                                              HorizontalScrollBarVisibility="Disabled"
+                                              Hyperlink.Click="RichTextFile_Click"
+                                              IsDocumentEnabled="True"
+                                              IsEnabled="True"
+                                              IsReadOnly="True" />
+                </TreeViewItem>
+                <TreeViewItem HorizontalContentAlignment="Left"
+                              FontSize="14"
+                              FontStyle="Normal"
+                              Header="Возведение в степень">
+                    <myNamespace:RichTextFile Width="{Binding ActualWidth,
+                                                              ConverterParameter=Width,
+                                                              Converter={StaticResource HelpWidth},
+                                                              ElementName=Helpborder}"
+                                              Height="Auto"
+                                              HorizontalContentAlignment="Left"
+                                              File="{Binding file3}"
+                                              HorizontalScrollBarVisibility="Disabled"
+                                              Hyperlink.Click="RichTextFile_Click"
+                                              IsDocumentEnabled="True"
+                                              IsEnabled="True"
+                                              IsReadOnly="True" />
+                </TreeViewItem>
+                <TreeViewItem HorizontalContentAlignment="Left"
+                              FontSize="14"
+                              FontStyle="Normal"
+                              Header="Преобразования">
+                    <myNamespace:RichTextFile Width="{Binding ActualWidth,
+                                                              ConverterParameter=Width,
+                                                              Converter={StaticResource HelpWidth},
+                                                              ElementName=Helpborder}"
+                                              Height="Auto"
+                                              HorizontalContentAlignment="Left"
+                                              File="{Binding file4}"
+                                              HorizontalScrollBarVisibility="Disabled"
+                                              Hyperlink.Click="RichTextFile_Click"
+                                              IsDocumentEnabled="True"
+                                              IsEnabled="True"
+                                              IsReadOnly="True" />
+                </TreeViewItem>
+                <TreeViewItem HorizontalContentAlignment="Left"
+                              FontSize="14"
+                              FontStyle="Normal">
+                    <TreeViewItem.Header>
+                        <TextBlock Width="{Binding ElementName=Helpborder,
+                                                   Path=ActualWidth}"
+                                   FontSize="14"
+                                   Text="Минор. Алгебраическое дополнение"
+                                   TextWrapping="Wrap" />
+                    </TreeViewItem.Header>
+                    <myNamespace:RichTextFile Width="{Binding ActualWidth,
+                                                              ConverterParameter=Width,
+                                                              Converter={StaticResource HelpWidth},
+                                                              ElementName=Helpborder}"
+                                              Height="Auto"
+                                              HorizontalContentAlignment="Left"
+                                              File="{Binding file5}"
+                                              HorizontalScrollBarVisibility="Disabled"
+                                              Hyperlink.Click="RichTextFile_Click"
+                                              IsDocumentEnabled="True"
+                                              IsEnabled="True"
+                                              IsReadOnly="True" />
+                </TreeViewItem>
+                <TreeViewItem HorizontalContentAlignment="Left"
+                              FontSize="14"
+                              FontStyle="Normal"
+                              Header="Определитель">
+                    <myNamespace:RichTextFile Width="{Binding ActualWidth,
+                                                              ConverterParameter=Width,
+                                                              Converter={StaticResource HelpWidth},
+                                                              ElementName=Helpborder}"
+                                              Height="Auto"
+                                              HorizontalContentAlignment="Left"
+                                              File="{Binding file6}"
+                                              HorizontalScrollBarVisibility="Disabled"
+                                              Hyperlink.Click="RichTextFile_Click"
+                                              IsDocumentEnabled="True"
+                                              IsEnabled="True"
+                                              IsReadOnly="True" />
+                </TreeViewItem>
+                <TreeViewItem HorizontalContentAlignment="Left"
+                              FontSize="14"
+                              FontStyle="Normal"
+                              Header="Ранг">
+                    <myNamespace:RichTextFile Width="{Binding ActualWidth,
+                                                              ConverterParameter=Width,
+                                                              Converter={StaticResource HelpWidth},
+                                                              ElementName=Helpborder}"
+                                              Height="Auto"
+                                              HorizontalContentAlignment="Left"
+                                              File="{Binding file7}"
+                                              HorizontalScrollBarVisibility="Disabled"
+                                              Hyperlink.Click="RichTextFile_Click"
+                                              IsDocumentEnabled="True"
+                                              IsEnabled="True"
+                                              IsReadOnly="True" />
+                </TreeViewItem>
+                <TreeViewItem HorizontalContentAlignment="Left"
+                              FontSize="14"
+                              FontStyle="Normal"
+                              Header="Обратная матрица">
+                    <myNamespace:RichTextFile Width="{Binding ActualWidth,
+                                                              ConverterParameter=Width,
+                                                              Converter={StaticResource HelpWidth},
+                                                              ElementName=Helpborder}"
+                                              Height="Auto"
+                                              HorizontalContentAlignment="Left"
+                                              File="{Binding file8}"
+                                              HorizontalScrollBarVisibility="Disabled"
+                                              Hyperlink.Click="RichTextFile_Click"
+                                              IsDocumentEnabled="True"
+                                              IsEnabled="True"
+                                              IsReadOnly="True" />
+                </TreeViewItem>
+                <TreeViewItem HorizontalContentAlignment="Left"
+                              FontSize="14"
+                              FontStyle="Normal"
+                              Header="Команды">
+                    <myNamespace:RichTextFile Width="{Binding ActualWidth,
+                                                              ConverterParameter=Width,
+                                                              Converter={StaticResource HelpWidth},
+                                                              ElementName=Helpborder}"
+                                              Height="Auto"
+                                              HorizontalContentAlignment="Left"
+                                              File="{Binding file9}"
+                                              HorizontalScrollBarVisibility="Disabled"
+                                              Hyperlink.Click="RichTextFile_Click"
+                                              IsDocumentEnabled="True"
+                                              IsEnabled="True"
+                                              IsReadOnly="True" />
+                </TreeViewItem>
+            </TreeView>
+
+            <TextBox x:Name="MainTextBox"
+                     Grid.Row="0"
+                     Grid.Column="1"
+                     Width="{Binding ElementName=MainField}"
+                     Height="{Binding ElementName=MainField}"
+                     FontFamily="{Binding CurrentFont}"
+                     FontSize="{Binding FontSize}"
+                     FontStyle="Normal"
+                     ScrollViewer.CanContentScroll="True"
+                     TextWrapping="Wrap"
+                     VerticalScrollBarVisibility="Auto">
+                <TextBox.InputBindings>
+                    <KeyBinding Key="Return"
+                                Command="{Binding Enter}"
+                                CommandParameter="{Binding ElementName=MainTextBox}" />
+                </TextBox.InputBindings>
+            </TextBox>
+        </Grid>
+
+        <Border Name="Global"
+                Grid.Row="0"
+                Grid.RowSpan="3"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Margin="0,0,0,0"
+                Panel.ZIndex="5"
+                BorderBrush="Black"
+                BorderThickness="2,2,2,2" />
+        <Button x:Name="newMatrix"
+                Grid.Row="1"
+                Width="{Binding ActualWidth,
+                                ConverterParameter=Width,
+                                Converter={StaticResource BtnWidth},
+                                ElementName=window}"
+                Height="{Binding ElementName=Row2}"
+                Margin="2,2,2,2"
+                HorizontalContentAlignment="Right"
+                Command="{Binding CreateNewMatrix}"
+                Content="Новая матрица"
+                IsEnabled="{Binding ButtonEnable}"
+                Style="{StaticResource ResourceKey=CenterAlignmentBtn}" />
+        <Border Grid.Row="1"
+                Grid.RowSpan="2"
+                Grid.Column="0"
+                BorderBrush="Black"
+                BorderThickness="2" />
+        <Border Name="settPanel"
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="4"
+                Width="{Binding ElementName=Row1}"
+                Height="{Binding ElementName=newMatrix}"
+                BorderBrush="Black"
+                BorderThickness="0,2,2,2" />
+        <Border Name="collectionBord"
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Grid.Column="0"
+                Width="{Binding ActualWidth,
+                                ConverterParameter=Width,
+                                Converter={StaticResource MinWidthConverter},
+                                ElementName=window}"
+                Height="{Binding Height,
+                                 Converter={StaticResource Plus25},
+                                 ElementName=matrixCollection}"
+                Margin="0"
+                HorizontalAlignment="Left"
+                Panel.ZIndex="1"
+                BorderBrush="Black"
+                BorderThickness="2,0,2,2" />
+        <Grid Name="PanelGrid"
+              Grid.Row="1"
+              Grid.RowSpan="2"
+              Grid.Column="1"
+              Width="{Binding ElementName=col1}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Name="c0" Width="0.33333*" />
+                <ColumnDefinition Name="c1" Width="0.33333*" />
+                <ColumnDefinition Name="c2" Width="0.33333*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Name="PanelRow" Height="{Binding ElementName=Row2}" />
+                <RowDefinition Name="Names" Height="{Binding ElementName=Row0, Path=Height}" />
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="Actions"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       FontSize="15"
+                       FontStyle="Normal"
+                       Text="Действия с матрицами"
+                       TextAlignment="Center" />
+            <TextBlock Name="curMatrix"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       FontSize="15"
+                       FontStyle="Normal"
+                       Text="Текущая матрица"
+                       TextAlignment="Center" />
+            <TextBlock Grid.Row="0"
+                       Grid.Column="2"
+                       FontSize="15"
+                       FontStyle="Normal"
+                       Text="Другое"
+                       TextAlignment="Center" />
+            <DockPanel Name="Dock"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       LastChildFill="True">
+                <StackPanel Name="Operations"
+                            Grid.Column="0"
+                            Height="{Binding ElementName=Row0,
+                                             Path=Height}">
+                    <Button Name="Multiply"
+                            Height="{Binding ActualHeight,
+                                             ElementName=Operations,
+                                             ConverterParameter=Height,
+                                             Converter={StaticResource OneThird}}"
+                            Command="{Binding Mult}"
+                            CommandParameter="{Binding ElementName=MainTextBox}"
+                            IsEnabled="{Binding ButtonEnable}"
+                            Style="{StaticResource LikeToogleButton}">
+                        <Button.Content>
+                            <TextBlock Width="{Binding ActualWidth,
+                                                       Converter={StaticResource One8},
+                                                       ConverterParameter=Width,
+                                                       ElementName=Actions}"
+                                       FontSize="20"
+                                       FontStyle="Normal"
+                                       Text="X"
+                                       TextAlignment="Center" />
+                        </Button.Content>
+                    </Button>
+                    <Button Name="Plus"
+                            Height="{Binding ActualHeight,
+                                             ElementName=Operations,
+                                             ConverterParameter=Height,
+                                             Converter={StaticResource OneThird}}"
+                            Command="{Binding Add}"
+                            CommandParameter="{Binding ElementName=MainTextBox}"
+                            IsEnabled="{Binding ButtonEnable}"
+                            Style="{StaticResource LikeToogleButton}">
+                        <Button.Content>
+                            <TextBlock Width="{Binding ActualWidth,
+                                                       Converter={StaticResource One8},
+                                                       ConverterParameter=Width,
+                                                       ElementName=Actions}"
+                                       FontSize="20"
+                                       FontStyle="Normal"
+                                       Text="+"
+                                       TextAlignment="Center" />
+                        </Button.Content>
+                    </Button>
+                    <Button Name="Sub"
+                            Height="{Binding ActualHeight,
+                                             ElementName=Operations,
+                                             ConverterParameter=Height,
+                                             Converter={StaticResource OneThird}}"
+                            Command="{Binding Sub}"
+                            CommandParameter="{Binding ElementName=MainTextBox}"
+                            IsEnabled="{Binding ButtonEnable}"
+                            Style="{StaticResource LikeToogleButton}">
+                        <Button.Content>
+                            <TextBlock Width="{Binding ActualWidth,
+                                                       Converter={StaticResource One8},
+                                                       ConverterParameter=Width,
+                                                       ElementName=Actions}"
+                                       FontSize="20"
+                                       FontStyle="Normal"
+                                       Text="-"
+                                       TextAlignment="Center" />
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+                <ScrollViewer>
+                    <StackPanel>
+                        <Button Height="30"
+                                Command="{Binding Determinant}"
+                                CommandParameter="{Binding ElementName=MainTextBox}"
+                                IsEnabled="{Binding ButtonEnable}"
+                                Style="{StaticResource LeftAlignmentBtn}">
+                            <Button.Content>
+                                <TextBlock Margin="3"
+                                           FontSize="14"
+                                           FontStyle="Normal"
+                                           Text="Определитель"
+                                           TextAlignment="Left" />
+                            </Button.Content>
+                        </Button>
+                        <Button Height="30"
+                                Command="{Binding Transpose}"
+                                CommandParameter="{Binding ElementName=MainTextBox}"
+                                IsEnabled="{Binding ButtonEnable}"
+                                Style="{StaticResource LeftAlignmentBtn}">
+                            <Button.Content>
+                                <TextBlock Margin="3"
+                                           FontSize="14"
+                                           FontStyle="Normal"
+                                           Text="Транспонировать"
+                                           TextAlignment="Left" />
+                            </Button.Content>
+                        </Button>
+                        <Button Height="30"
+                                Command="{Binding REF}"
+                                CommandParameter="{Binding ElementName=MainTextBox}"
+                                IsEnabled="{Binding ButtonEnable}"
+                                Style="{StaticResource LeftAlignmentBtn}">
+                            <Button.Content>
+                                <TextBlock Margin="3"
+                                           FontSize="14"
+                                           FontStyle="Normal"
+                                           Text="Метод Гаусса"
+                                           TextAlignment="Left" />
+                            </Button.Content>
+                        </Button>
+                        <Button Height="30"
+                                Command="{Binding Gauss_Jordan}"
+                                CommandParameter="{Binding ElementName=MainTextBox}"
+                                IsEnabled="{Binding ButtonEnable}"
+                                Style="{StaticResource LeftAlignmentBtn}">
+                            <Button.Content>
+                                <TextBlock Margin="3"
+                                           FontSize="14"
+                                           FontStyle="Normal"
+                                           Text="Метод Гаусса-Жордана"
+                                           TextAlignment="Left" />
+                            </Button.Content>
+                        </Button>
+                        <Button Height="Auto"
+                                Command="{Binding Inverse}"
+                                CommandParameter="{Binding ElementName=MainTextBox}"
+                                IsEnabled="{Binding ButtonEnable}"
+                                Style="{StaticResource LeftAlignmentBtn}">
+                            <Button.Content>
+                                <TextBlock Margin="3"
+                                           FontSize="14"
+                                           FontStyle="Normal"
+                                           Text="Обратная матрица методом Гаусса"
+                                           TextAlignment="Left"
+                                           TextWrapping="WrapWithOverflow" />
+                            </Button.Content>
+                        </Button>
+                        <Button Height="Auto"
+                                Command="{Binding InverseCof}"
+                                CommandParameter="{Binding ElementName=MainTextBox}"
+                                IsEnabled="{Binding ButtonEnable}"
+                                Style="{StaticResource LeftAlignmentBtn}">
+                            <Button.Content>
+                                <TextBlock Margin="3"
+                                           FontSize="14"
+                                           FontStyle="Normal"
+                                           Text="Обратная матрица методом алгебраических дополнений"
+                                           TextAlignment="Left"
+                                           TextWrapping="WrapWithOverflow" />
+                            </Button.Content>
+                        </Button>
+                        <Button Height="30"
+                                Command="{Binding Rang}"
+                                CommandParameter="{Binding ElementName=MainTextBox}"
+                                IsEnabled="{Binding ButtonEnable}"
+                                Style="{StaticResource LeftAlignmentBtn}">
+                            <Button.Content>
+                                <TextBlock Margin="3"
+                                           FontSize="14"
+                                           FontStyle="Normal"
+                                           Text="Ранг"
+                                           TextAlignment="Left" />
+                            </Button.Content>
+                        </Button>
+                        <Button Height="30"
+                                Command="{Binding Power}"
+                                CommandParameter="{Binding ElementName=MainTextBox}"
+                                IsEnabled="{Binding ButtonEnable}"
+                                Style="{StaticResource LeftAlignmentBtn}">
+                            <Button.Content>
+                                <TextBlock Margin="3"
+                                           FontSize="14"
+                                           FontStyle="Normal"
+                                           Text="Возвести в степень"
+                                           TextAlignment="Left" />
+                            </Button.Content>
+                        </Button>
+                    </StackPanel>
+                </ScrollViewer>
+            </DockPanel>
+            <ScrollViewer Grid.Row="1"
+                          Grid.Column="1"
+                          Width="{Binding ElementName=CurMatr,
+                                          Path=Width}"
+                          VerticalContentAlignment="Center"
+                          Background="White"
+                          BorderBrush="Black"
+                          HorizontalScrollBarVisibility="Auto"
+                          VerticalScrollBarVisibility="Auto">
+                <Label Name="CurMatr"
+                       Width="Auto"
+                       Height="Auto"
+                       HorizontalContentAlignment="Center"
+                       VerticalContentAlignment="Center"
+                       Content="{Binding ElementName=matrixCollection,
+                                         Path=SelectedItem,
+                                         Converter={StaticResource MatrixWrite}}"
+                       Foreground="Black" />
+            </ScrollViewer>
+            <DockPanel Grid.Row="1" Grid.Column="2">
+                <ToggleButton Width="40"
+                              DockPanel.Dock="Left"
+                              IsChecked="{Binding STEP}"
+                              Style="{StaticResource ToogleButton}" />
+                <Button Height="{Binding ActualHeight,
+                                         ElementName=Dock,
+                                         ConverterParameter=ActualHeight,
+                                         Converter={StaticResource OneThird}}"
+                        Command="{Binding ClearWorkspace}"
+                        CommandParameter="{Binding ElementName=MainTextBox}"
+                        Content=" Очистить рабочую область"
+                        DockPanel.Dock="Top"
+                        FontSize="13"
+                        IsEnabled="{Binding ButtonEnable}"
+                        Style="{StaticResource LeftAlignmentBtn}" />
+                <Button Height="{Binding ActualHeight,
+                                         ElementName=Dock,
+                                         ConverterParameter=ActualHeight,
+                                         Converter={StaticResource OneThird}}"
+                        Command="{Binding ClearMatrixCollection}"
+                        Content=" Очистить коллекцию матриц"
+                        DockPanel.Dock="Top"
+                        FontSize="13"
+                        IsEnabled="{Binding ButtonEnable}"
+                        Style="{StaticResource LeftAlignmentBtn}" />
+                <Button Height="{Binding ActualHeight,
+                                         ElementName=Dock,
+                                         ConverterParameter=ActualHeight,
+                                         Converter={StaticResource OneThird}}"
+                        Command="{Binding SettingWind}"
+                        CommandParameter="{Binding ElementName=MainTextBox}"
+                        Content=" Настройки"
+                        FontSize="13"
+                        IsEnabled="{Binding ButtonEnable}"
+                        Style="{StaticResource LeftAlignmentBtn}" />
+            </DockPanel>
+        </Grid>
+        <ListView x:Name="matrixCollection"
+                  Grid.Row="2"
+                  Width="{Binding ElementName=collectionBord,
+                                  Path=ActualWidth}"
+                  Height="{Binding ElementName=Row2,
+                                   Path=Height}"
+                  Margin="0,0,1,2"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  HorizontalContentAlignment="Center"
+                  VerticalContentAlignment="Top"
+                  Background="#FFA8A8A7"
+                  BorderBrush="#FFA8A8A7"
+                  BorderThickness="0"
+                  Foreground="Black"
+                  ItemsSource="{Binding MatrixCollection}"
+                  Padding="0"
+                  ScrollViewer.CanContentScroll="False"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  SelectedItem="{Binding CurrentMatrix}">
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Command="{Binding Delete}" Header="Удалить" />
+                </ContextMenu>
+            </ListView.ContextMenu>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="{Binding ActualWidth, ElementName=matrixCollection, ConverterParameter=ActualWidth, Converter={StaticResource OneThird}}" DisplayMemberBinding="{Binding Name}">
+                        <GridViewColumnHeader Content="Имя" IsHitTestVisible="False" />
+                    </GridViewColumn>
+                    <GridViewColumn Width="{Binding ActualWidth, ElementName=matrixCollection, ConverterParameter=ActualWidth, Converter={StaticResource OneThird}}" DisplayMemberBinding="{Binding Rows}">
+                        <GridViewColumnHeader Content="Строк" IsHitTestVisible="False" />
+                    </GridViewColumn>
+                    <GridViewColumn Width="{Binding ActualWidth, ElementName=matrixCollection, ConverterParameter=ActualWidth, Converter={StaticResource OneThird}}" DisplayMemberBinding="{Binding Columns}">
+                        <GridViewColumnHeader Content="Столбцов" IsHitTestVisible="False" />
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
+

@@ -1,0 +1,201 @@
+﻿<Window x:Class="EasyMatrix.MatrixCreateView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:MyControls="clr-namespace:MyControls;assembly=MyControls"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mySpace="clr-namespace:EasyMatrix"
+        Uid="CreateWindow"
+        Name="CreateMatrix"
+        Title="Новая матрица"
+        Width="330"
+        Height="300"
+        MinHeight="300"
+        MaxWidth="{DynamicResource {x:Static SystemParameters.VirtualScreenWidthKey}}"
+        MaxHeight="{DynamicResource {x:Static SystemParameters.VirtualScreenHeightKey}}"
+        HorizontalContentAlignment="Stretch"
+        VerticalContentAlignment="Stretch"
+        Foreground="Black"
+        ResizeMode="NoResize"
+        ScrollViewer.VerticalScrollBarVisibility="Disabled"
+        ShowInTaskbar="False"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <AlternationConverter x:Key="AlternationConverter" />
+        <mySpace:ButtonOK x:Key="ButtonWidth" />
+    </Window.Resources>
+    <Window.DataContext>
+        <mySpace:MatrixCreateViewModel />
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Name="col0" Width="30" />
+            <ColumnDefinition Name="col1" Width="{Binding Width, ElementName=textBox}" />
+            <ColumnDefinition Name="col2" Width="Auto" />
+            <ColumnDefinition Name="col3" Width="Auto" />
+            <ColumnDefinition Name="col4" Width="{Binding Width, ElementName=col2}" />
+            <ColumnDefinition Name="col5" Width="Auto" />
+            <ColumnDefinition Name="col6" Width="{Binding ElementName=matrix, Path=Content.Width}" />
+            <ColumnDefinition Name="col7" Width="Auto" />
+            <ColumnDefinition Name="col8" Width="30" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Name="row0" Height="90*" />
+            <RowDefinition Name="row1" Height="Auto" />
+            <RowDefinition Name="row2" Height="90*" />
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="textBox"
+                 Grid.Row="1"
+                 Grid.Column="1"
+                 Width="Auto"
+                 Height="{Binding Heigh,
+                                  ElementName=row1}"
+                 MinWidth="20"
+                 VerticalAlignment="Center"
+                 VerticalContentAlignment="Center"
+                 MyControls:MyTextBox.Mask="Var"
+                 AllowDrop="True"
+                 ClipToBounds="False"
+                 FontSize="20"
+                 FontStyle="Italic"
+                 MaxLength="7"
+                 Text="{Binding CurrentChar}"
+                 TextAlignment="Center"
+                 TextWrapping="NoWrap" />
+        <Label x:Name="equ"
+               Grid.Row="1"
+               Grid.Column="2"
+               Width="{Binding Width,
+                               ElementName=col2}"
+               Height="{Binding Heigh,
+                                ElementName=row1}"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center">
+            <Label.Content>
+                <TextBlock FontSize="20"
+                           FontStyle="Italic"
+                           Text="="
+                           TextAlignment="Center" />
+            </Label.Content>
+        </Label>
+
+        <Label x:Name="dimension"
+               Grid.Row="1"
+               Grid.Column="3"
+               Width="{Binding Width,
+                               ElementName=col3}"
+               Height="{Binding Heigh,
+                                ElementName=row1}"
+               VerticalAlignment="Center">
+            <Label.Content>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Name="b1" />
+                        <ColumnDefinition Name="d1" Width="{Binding Width, ElementName=d1}" />
+                        <ColumnDefinition Name="mult" />
+                        <ColumnDefinition Name="d2" Width="{Binding Width, ElementName=d2}" />
+                        <ColumnDefinition Name="b2" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="br1"
+                               Height="{Binding Height,
+                                                ElementName=matrix}"
+                               FontSize="20"
+                               FontStyle="Normal"
+                               Text="("
+                               TextAlignment="Center" />
+                    <TextBox x:Name="dim1"
+                             Grid.Column="1"
+                             Width="Auto"
+                             MyControls:MyTextBox.Mask="PositiveInteger"
+                             MyControls:MyTextBox.MaximumValue="10"
+                             MyControls:MyTextBox.MinimumValue="0"
+                             FontSize="20"
+                             FontStyle="Normal"
+                             MaxLength="3"
+                             Text="{Binding Rows,
+                                            UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBlock x:Name="x"
+                               Grid.Column="2"
+                               FontSize="20"
+                               FontStyle="Normal"
+                               Text="x" />
+                    <TextBox x:Name="dim2"
+                             Grid.Column="3"
+                             Width="Auto"
+                             MyControls:MyTextBox.Mask="PositiveInteger"
+                             MyControls:MyTextBox.MaximumValue="10"
+                             MyControls:MyTextBox.MinimumValue="1"
+                             FontSize="20"
+                             FontStyle="Normal"
+                             MaxLength="2"
+                             Text="{Binding Col,
+                                            UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBlock x:Name="br2"
+                               Grid.Column="4"
+                               FontSize="20"
+                               FontStyle="Normal"
+                               Text=")" />
+                </Grid>
+            </Label.Content>
+        </Label>
+        <TextBlock x:Name="equ2"
+                   Grid.Row="1"
+                   Grid.Column="4"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="20"
+                   FontStyle="Normal"
+                   Text="=" />
+        <TextBlock x:Name="br3"
+                   Grid.Row="1"
+                   Grid.Column="5"
+                   VerticalAlignment="Center"
+                   FontSize="20"
+                   FontStyle="Normal"
+                   Text="("
+                   TextAlignment="Center" />
+        <Label x:Name="matrix"
+               Grid.Row="1"
+               Grid.Column="6"
+               Width="Auto"
+               Height="Auto"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center"
+               Content="{Binding Matrix}" />
+
+        <TextBlock x:Name="br4"
+                   Grid.Row="1"
+                   Grid.Column="7"
+                   VerticalAlignment="Center"
+                   FontSize="20"
+                   FontStyle="Normal"
+                   Text=")"
+                   TextAlignment="Center" />
+        <StackPanel x:Name="spanel"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="7"
+                    VerticalAlignment="Bottom"
+                    Orientation="Horizontal">
+            <Button Width="{Binding ActualWidth,
+                                    ConverterParameter=Width,
+                                    Converter={StaticResource ButtonWidth},
+                                    ElementName=spanel}"
+                    Height="30"
+                    Command="{Binding Cancel}"
+                    CommandParameter="{Binding ElementName=CreateMatrix}"
+                    Content="Отмена" />
+            <Button Width="{Binding ActualWidth,
+                                    ConverterParameter=Width,
+                                    Converter={StaticResource ButtonWidth},
+                                    ElementName=spanel}"
+                    Height="30"
+                    Command="{Binding OK}"
+                    CommandParameter="{Binding ElementName=CreateMatrix}"
+                    Content="OK" />
+        </StackPanel>
+    </Grid>
+</Window>
