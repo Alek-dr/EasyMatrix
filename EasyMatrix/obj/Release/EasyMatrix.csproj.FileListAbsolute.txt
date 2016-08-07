@@ -40,3 +40,47 @@ D:\Документы\Visual Studio 2015\Projects\C#\Matrix\MatrixTest\EasyMatri
 D:\Документы\Visual Studio 2015\Projects\C#\Matrix\MatrixTest\EasyMatrix\EasyMatrix\obj\Release\EasyMatrix.csproj.GenerateResource.Cache
 D:\Документы\Visual Studio 2015\Projects\C#\Matrix\MatrixTest\EasyMatrix\EasyMatrix\obj\Release\EasyMatrix.exe
 D:\Документы\Visual Studio 2015\Projects\C#\Matrix\MatrixTest\EasyMatrix\EasyMatrix\obj\Release\EasyMatrix.pdb
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\bin\Release\Resources\Help\About.rtf
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\bin\Release\Resources\Help\Kind.rtf
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\bin\Release\Resources\Help\act1.rtf
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\bin\Release\Resources\Help\Power.rtf
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\bin\Release\Resources\Help\act2.rtf
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\bin\Release\Resources\Help\Determinant.rtf
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\bin\Release\Resources\Help\M.rtf
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\bin\Release\Resources\Help\Inverse.rtf
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\bin\Release\Resources\Help\Rang.rtf
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\bin\Release\Resources\Help\Commands.rtf
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\bin\Release\EasyMatrix.exe.config
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\bin\Release\EasyMatrix.exe
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\bin\Release\EasyMatrix.pdb
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\bin\Release\GalaSoft.MvvmLight.dll
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\bin\Release\GalaSoft.MvvmLight.Extras.dll
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\bin\Release\GalaSoft.MvvmLight.Platform.dll
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\bin\Release\Microsoft.Practices.ServiceLocation.dll
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\bin\Release\System.Windows.Interactivity.dll
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\bin\Release\GalaSoft.MvvmLight.pdb
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\bin\Release\GalaSoft.MvvmLight.xml
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\bin\Release\GalaSoft.MvvmLight.Extras.pdb
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\bin\Release\GalaSoft.MvvmLight.Extras.xml
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\bin\Release\GalaSoft.MvvmLight.Platform.pdb
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\bin\Release\GalaSoft.MvvmLight.Platform.xml
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\bin\Release\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\bin\Release\Microsoft.Practices.ServiceLocation.xml
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\obj\Release\CreateMatrix\MatrixCreateView.g.cs
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\obj\Release\MainWindow\View.g.cs
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\obj\Release\Settings\Settings.g.cs
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\obj\Release\App.g.cs
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\obj\Release\EasyMatrix_Content.g.cs
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\obj\Release\EasyMatrix_MarkupCompile.cache
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\obj\Release\EasyMatrix_MarkupCompile.lref
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\obj\Release\App.baml
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\obj\Release\CreateMatrix\MatrixCreateView.baml
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\obj\Release\MainWindow\View.baml
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\obj\Release\Settings\Settings.baml
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\obj\Release\Styles.baml
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\obj\Release\EasyMatrix.g.resources
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\obj\Release\EasyMatrix.Properties.Resources.resources
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\obj\Release\EasyMatrix.csproj.GenerateResource.Cache
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\obj\Release\EasyMatrix.exe
+C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\obj\Release\EasyMatrix.pdb

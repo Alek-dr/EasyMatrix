@@ -123,6 +123,8 @@
       <DependentUpon>MatrixCreateView.xaml</DependentUpon>
     </Compile>
     <Compile Include="CreateMatrix\MatrixCreateViewModel.cs" />
+    <Compile Include="Library files\Exceptions.cs" />
+    <Compile Include="Library files\Matrix.cs" />
     <Compile Include="MainWindow\ViewModel.cs" />
     <Compile Include="Parser.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

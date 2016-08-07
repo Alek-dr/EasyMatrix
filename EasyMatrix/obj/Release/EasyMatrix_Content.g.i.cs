@@ -8,8 +8,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/doc.xps")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("doc2.rtf")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/doc2.rtf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/help/about.rtf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/help/kind.rtf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/help/act1.rtf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/help/power.rtf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/help/act2.rtf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/help/determinant.rtf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/help/m.rtf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/help/inverse.rtf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/help/rang.rtf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/help/commands.rtf")]
 
 
