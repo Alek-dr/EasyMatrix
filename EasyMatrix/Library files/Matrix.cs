@@ -1360,6 +1360,7 @@ namespace Matrix
 
         public int Rang()
         {
+            if (IsZero) { return 0; }
             Matrix X = this.GetStepMatrix();
             X.ExcludeZeroRow();
             return X.Rows;

@@ -84,3 +84,6 @@ C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\obj\Release\EasyMatrix.Properties
 C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\obj\Release\EasyMatrix.csproj.GenerateResource.Cache
 C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\obj\Release\EasyMatrix.exe
 C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\obj\Release\EasyMatrix.pdb
+D:\EasyMatrix\EasyMatrix\bin\Release\EasyMatrix.exe.config
+D:\EasyMatrix\EasyMatrix\obj\Release\EasyMatrix.exe
+D:\EasyMatrix\EasyMatrix\obj\Release\EasyMatrix.pdb
