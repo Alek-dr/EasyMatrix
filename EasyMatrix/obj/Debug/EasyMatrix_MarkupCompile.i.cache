@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\obj\Debug\
+D:\EasyMatrix\EasyMatrix\obj\Debug\
 EasyMatrix
 none
 false
 DEBUG;TRACE
-C:\Users\pc\Source\Repos\EasyMatrix\EasyMatrix\App.xaml
+D:\EasyMatrix\EasyMatrix\App.xaml
 4-1746921590
 10-697430567
-19-1235051420
-751946365270
+21-1721358792
+75-1406823589
 CreateMatrix\MatrixCreateView.xaml;MainWindow\View.xaml;Settings\Settings.xaml;Styles.xaml;
 
-False
+True
 
