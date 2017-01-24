@@ -45,6 +45,7 @@ namespace EasyMatrix
                 string s1 = _inputString;
                 string s2 = String.Empty;
                 string s3 = String.Empty;
+                string s4 = String.Empty;
                 bool flag = true;
                 try
                 {
@@ -55,42 +56,56 @@ namespace EasyMatrix
                         s3 = s2;
                         while (s2.Contains('*'))
                         {
+                            s4 = s2;
                             Match number = justNumb.Match(s2);
                             if (number.Success) { break; }
                             flag = false;
                             s2 = MultiplyString(s2);
+                            if (s2 == s4) throw new Exception();
                         }
                         while (s2.Contains('+'))
                         {
+                            s4 = s2;
                             Match number = justNumb.Match(s2);
                             if (number.Success) { break; }
                             flag = false;
                             s2 = AddString(s2);
+                            if (s2 == s4) throw new Exception();
                         }
                         while (s2.Contains('-'))
                         {
+                            s4 = s2;
                             Match number = justNumb.Match(s2);
                             if (number.Success) { break; }
                             flag = false;
                             s2 = SubString(s2);
+                            if (s2 == s4) throw new Exception();
                         }
                         if (flag)
                         {
+                            s4 = s1;
                             s1 = DeleteBracket(s1);
+                            if(s1==s4) throw new Exception();
                         }
                         s1 = s1.Replace(s3, s2);
                     }
                     while (s1.Contains('*'))
                     {
+                        s4 = s1;
                         s1 = MultiplyString(s1);
+                        if(s4==s1) throw new Exception();
                     }
                     while (s1.Contains('-'))
                     {
+                        s4 = s1;
                         s1 = SubString(s1);
+                        if (s4 == s1) throw new Exception();
                     }
                     while (s1.Contains('+'))
                     {
+                        s4 = s1;
                         s1 = AddString(s1);
+                        if (s4 == s1) throw new Exception();
                     }
                     GC.Collect();
                     GC.WaitForPendingFinalizers();
@@ -221,7 +236,6 @@ namespace EasyMatrix
                 {
                     for (int j = 0; j < WorkingMatrix.Count; j++)
                     {
-                        string expr = WorkingMatrix[i].Name + "+" + WorkingMatrix[j].Name;
                         if (addString == WorkingMatrix[i].Name + "+" + WorkingMatrix[j].Name)
                         {
                             Matrix X = WorkingMatrix[i] + WorkingMatrix[j];
