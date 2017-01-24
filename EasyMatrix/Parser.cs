@@ -221,6 +221,7 @@ namespace EasyMatrix
                 {
                     for (int j = 0; j < WorkingMatrix.Count; j++)
                     {
+                        string expr = WorkingMatrix[i].Name + "+" + WorkingMatrix[j].Name;
                         if (addString == WorkingMatrix[i].Name + "+" + WorkingMatrix[j].Name)
                         {
                             Matrix X = WorkingMatrix[i] + WorkingMatrix[j];
@@ -229,6 +230,7 @@ namespace EasyMatrix
                             str = str.Replace(addString, X.Name);
                             return str;
                         }
+                       
                         if (addString == "-" + WorkingMatrix[i].Name + "+" + WorkingMatrix[j].Name)
                         {
                             Matrix X = WorkingMatrix[j] - WorkingMatrix[i];
@@ -375,6 +377,18 @@ namespace EasyMatrix
                 k = k1 - k2;
                 str = str.Replace(m.Value, k.ToString());
                 return str;
+            }
+            for(int i=0; i<WorkingMatrix.Count; i++)
+            {
+                if (str == "-" + WorkingMatrix[i].Name)
+                {
+                    string name = WorkingMatrix[i].Name;
+                    WorkingMatrix[i] = WorkingMatrix[i] * -1;
+                    WorkingMatrix[i].Name = name;
+                    int index = str.LastIndexOf('-');
+                    str = str.Substring(index+1);
+                    return str;
+                }
             }
             return str;
         }
